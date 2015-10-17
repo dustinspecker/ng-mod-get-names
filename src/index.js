@@ -1,4 +1,5 @@
 'use strict';
+import arrayUnique from 'array-unique';
 
 /**
  * Retrieve list of Angular modules get/set in file
@@ -27,5 +28,5 @@ export default function ngModGetNames(fileContents) {
     match = regex.exec(fileContents);
   }
 
-  return modules;
+  return arrayUnique(modules);
 }

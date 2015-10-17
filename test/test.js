@@ -45,6 +45,10 @@ describe('ng-mod-get-names', () => {
     expect(ngModGetNames('angular.module(\'test\', [])angular.module(\'MODULE\')')).to.eql(['test', 'MODULE']);
   });
 
+  it('should remove duplicate module names', () => {
+    expect(ngModGetNames('angular.module(\'test\').factory(fn)angular.module(\'test\').factory(fn)')).to.eql(['test']);
+  });
+
   it('should handle whitespace', () => {
     expect(ngModGetNames(`angular${EOL}.module( 'test', [] )`)).to.eql(['test']);
   });
