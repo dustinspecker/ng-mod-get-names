@@ -41,6 +41,10 @@ describe('ng-mod-get-names', () => {
       .to.eql(['test', 'MODULE']);
   });
 
+  it('should find modules using both getter and setter', () => {
+    expect(ngModGetNames('angular.module(\'test\', [])angular.module(\'MODULE\')')).to.eql(['test', 'MODULE']);
+  });
+
   it('should handle whitespace', () => {
     expect(ngModGetNames(`angular${EOL}.module( 'test', [] )`)).to.eql(['test']);
   });
