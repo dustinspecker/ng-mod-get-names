@@ -1,6 +1,6 @@
 {
   "name": "ng-mod-get-names",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Get module names from an Angular file's contents",
   "main": "lib/index.js",
   "scripts": {
