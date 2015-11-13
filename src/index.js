@@ -8,7 +8,7 @@ import arrayUnique from 'array-unique';
  * @param {String} fileContents - Angular file contents to be examined
  * @returns {String[]} - list of module names get/set in file
  */
-export default function ngModGetNames(fileContents) {
+module.exports = function (fileContents) {
   let modules = []
     , match, regex;
 
@@ -29,4 +29,4 @@ export default function ngModGetNames(fileContents) {
   }
 
   return arrayUnique(modules);
-}
+};
