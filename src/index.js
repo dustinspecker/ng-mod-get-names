@@ -9,8 +9,8 @@ import arrayUnique from 'array-unique';
  * @returns {String[]} - list of module names get/set in file
  */
 module.exports = function (fileContents) {
-  let modules = []
-    , match, regex;
+  const modules = [];
+  let match, regex;
 
   if (!fileContents) {
     throw new Error('Expected file contents to be passed');
