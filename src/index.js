@@ -1,5 +1,5 @@
-'use strict';
-import arrayUnique from 'array-unique';
+'use strict'
+import arrayUnique from 'array-unique'
 
 /**
  * Retrieve list of Angular modules get/set in file
@@ -9,24 +9,24 @@ import arrayUnique from 'array-unique';
  * @returns {String[]} - list of module names get/set in file
  */
 module.exports = function (fileContents) {
-  const modules = [];
-  let match, regex;
+  const modules = []
+  let match
 
   if (!fileContents) {
-    throw new Error('Expected file contents to be passed');
+    throw new Error('Expected file contents to be passed')
   }
 
   if (typeof fileContents !== 'string') {
-    throw new TypeError('Expected file contents to be a string');
+    throw new TypeError('Expected file contents to be a string')
   }
 
-  regex = /angular[\s]*[.]module[\(]?[\s]*'([^']*)'[^\)angular]*[\)]?/g;
+  const regex = /angular[\s]*[.]module[\(]?[\s]*'([^']*)'[^\)angular]*[\)]?/g
 
-  match = regex.exec(fileContents);
+  match = regex.exec(fileContents)
   while (match && match[1]) {
-    modules.push(match[1]);
-    match = regex.exec(fileContents);
+    modules.push(match[1])
+    match = regex.exec(fileContents)
   }
 
-  return arrayUnique(modules);
-};
+  return arrayUnique(modules)
+}
