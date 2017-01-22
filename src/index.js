@@ -20,7 +20,7 @@ module.exports = function (fileContents) {
     throw new TypeError('Expected file contents to be a string')
   }
 
-  const regex = /angular[\s]*[.]module[\(]?[\s]*'([^']*)'[^\)angular]*[\)]?/g
+  const regex = /angular[\s]*[.]module[(]?[\s]*'([^']*)'[^)angular]*[)]?/g
 
   match = regex.exec(fileContents)
   while (match && match[1]) {
